@@ -214,3 +214,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore Python virtual environment
+clickarmor_env/
+
+# Ignore resources folder
+resources/
