@@ -1,0 +1,8 @@
+pandas 
+scikit-learn
+numpy
+tqdm
+dill
+flask 
+lightgbm
+#-e .
