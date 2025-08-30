@@ -71,8 +71,10 @@ class DataTransformation:
             df = extract_url_features1(df)
 
             df['NumSubDomains'] = df['url'].apply(count_subdomains)
-            return df
 
+            df = df.drop(['url'],axis=1)
+            return df
+    
         except Exception as e:
             raise CustomException(e, sys)
 
@@ -96,6 +98,8 @@ class DataTransformation:
             X_test = test_df.drop(columns=[target_column_name])
             y_test = test_df[target_column_name]
 
+            y_train = y_train.map({'benign': 0, 'phishing': 1})
+            y_test  = y_test.map({'benign': 0, 'phishing': 1})
             logging.info("Feature extraction and split complete.")
 
             return X_train, X_test, y_train, y_test

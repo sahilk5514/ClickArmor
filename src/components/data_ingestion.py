@@ -54,32 +54,16 @@ if __name__ == "__main__":
     ingestion = DataIngestion()
     train_path, test_path = ingestion.initiate_data_ingestion()
 
+    config = DataTransformationConfig()
     transformer = DataTransformation()
     X_train, X_test, y_train, y_test = transformer.initiate_data_transformation(train_path, test_path)
-    
-    config = DataTransformationConfig()
-    transformer = DataTransformation(config)
 
-
-    # Tuned parameters
-    best_params = {
-    'learning_rate': 0.11560266116814345,
-    'num_leaves': 197,
-    'max_depth': 13, 
-    'feature_fraction': 0.6988054575160485,
-    'bagging_fraction': 0.8554525257423733,
-    'bagging_freq': 8
-    }
-
-    # Initialize trainer
-    trainer = ModelTrainer(best_params=best_params, n_estimators=1000, recall_target=0.98)
-
-    # Use X_test, y_test as validation
+ 
+    trainer = ModelTrainer(n_estimators=1000, recall_target=0.98)
     trainer.train(X_train, y_train, X_test, y_test)
     trainer.evaluate(X_test, y_test)
-
-    # Save final model
     trainer.save_model("lightgbm_model.pkl")
+
 
     # Later load it
     # trainer.load_model("lightgbm_model.pkl")
