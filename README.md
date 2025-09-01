@@ -5,6 +5,18 @@ It leverages **LightGBM** and **custom feature engineering** to classify URLs in
 
 ---
 
+### 💻 End-to-End Pipeline  
+
+ClickArmor implements a **complete pipeline**:
+
+**1️⃣ Data Ingestion:** Raw URL datasets → train/test split  
+**2️⃣ Data Transformation:** Feature engineering + sensitive words extraction  
+**3️⃣ Model Training:** LightGBM classifier → optimized threshold  
+**4️⃣ Prediction Pipeline:** Single URL → feature extraction → prediction  
+**5️⃣ Deployment:** Streamlit app → future browser extension
+
+---
+
 ## ✨ Features  
 - 🧠 **Machine Learning Model** (LightGBM) for phishing detection  
 - 🔍 **Feature Extraction** from raw URLs  
@@ -18,11 +30,11 @@ It leverages **LightGBM** and **custom feature engineering** to classify URLs in
 ```
 ClickArmor/
 │── src/
-│ ├── components/ # Data ingestion, transformation, model training
-│ ├── pipeline/ # Prediction pipeline
+│ ├── components/ # Data ingestion, transformation, model trainer
+│ ├── pipeline/ # Prediction pipeline 
 │ ├── utils.py # Utility functions
 │ ├── exception.py # Custom exception handling
-│
+│ ├── logger.py # Logging Utility
 │── artifacts/ # Saved models & transformers
 │── app.py # Streamlit app
 │── requirements.txt # Project dependencies
@@ -30,6 +42,17 @@ ClickArmor/
 ```
 
 ---
+
+## 📊 Model Performance  
+
+```
+| Metric            | Value    |
+|-------------------|----------|
+| Accuracy          | 98.75%   |
+| Recall (Phishing) | <0.3     |
+ -------------------------------
+ ```
+Notes: Model optimized to **minimize false positives**, ensuring benign URLs are rarely flagged as phishing. High confidence predictions for phishing URLs only.
 
 
 ---
