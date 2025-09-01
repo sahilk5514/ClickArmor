@@ -21,8 +21,10 @@ ClickArmor/
 │ ├── pipeline/ # Prediction pipeline
 │ ├── utils.py # Utility functions
 │ ├── exception.py # Custom exception handling
+│
 │── artifacts/ # Saved models & transformers
 │── app.py # Streamlit app
+│── requirements.txt # Project dependencies
 │── README.md # Project documentation
 
 
