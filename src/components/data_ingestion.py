@@ -59,10 +59,10 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = transformer.initiate_data_transformation(train_path, test_path)
 
  
-    trainer = ModelTrainer(n_estimators=1000, recall_target=0.98)
+    trainer = ModelTrainer(n_estimators=1000, recall_target=0.975)
     trainer.train(X_train, y_train, X_test, y_test)
     trainer.evaluate(X_test, y_test)
-    trainer.save_model("lightgbm_model.pkl")
+    trainer.save_model("artifacts/lightgbm_model.pkl")
 
 
     # Later load it

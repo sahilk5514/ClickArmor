@@ -21,7 +21,7 @@ class ModelTrainer:
                 'feature_fraction': 0.6988054575160485,
                 'bagging_fraction': 0.8554525257423733,
                 'bagging_freq': 8,
-                'class_weight': {0:1,1:1.2}}
+                'class_weight': {0:1,1:1.1}}
         self.n_estimators = n_estimators
         self.recall_target = recall_target
         self.model = None

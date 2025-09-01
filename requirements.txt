@@ -1,8 +1,9 @@
 pandas 
 scikit-learn
-numpy
+numpy==1.26.4
 tqdm
 dill
 flask 
 lightgbm
+streamlit
 #-e .
