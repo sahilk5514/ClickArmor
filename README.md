@@ -15,6 +15,7 @@ It leverages **LightGBM** and **custom feature engineering** to classify URLs in
 ---
 
 ## 📂 Project Structure  
+```
 ClickArmor/
 │── src/
 │ ├── components/ # Data ingestion, transformation, model training
@@ -26,7 +27,7 @@ ClickArmor/
 │── app.py # Streamlit app
 │── requirements.txt # Project dependencies
 │── README.md # Project documentation
-
+```
 
 ---
 
