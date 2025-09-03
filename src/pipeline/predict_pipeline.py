@@ -45,13 +45,13 @@ class PredictPipeline:
             raise CustomException(e, sys)
 
 
-if __name__ == "__main__":
-    try:
-        predictor = PredictPipeline()
-        test_url = "http://login-update-verification1234.com/paypal"
-        result = predictor.predict_single_url(test_url)
-        print(f"URL: {test_url}")
-        print(f"Prediction: {result['prediction']}, Probability: {result['probability']:.4f}")
-    except Exception as e:
-        print(e)
-# python -m src.pipeline.predict_pipeline
+# if __name__ == "__main__":
+#     try:
+#         predictor = PredictPipeline()
+#         test_url = "http://login-update-verification1234.com/paypal"
+#         result = predictor.predict_single_url(test_url)
+#         print(f"URL: {test_url}")
+#         print(f"Prediction: {result['prediction']}, Probability: {result['probability']:.4f}")
+#     except Exception as e:
+#         print(e)
+# # python -m src.pipeline.predict_pipeline

@@ -49,7 +49,7 @@ ClickArmor/
 | Metric            | Value    |
 |-------------------|----------|
 | Accuracy          | 98.75%   |
-| Recall (Phishing) | <0.3     |
+| Recall (Phishing) | <0.7     |
  -------------------------------
  ```
 Notes: Model optimized to **minimize false positives**, ensuring benign URLs are rarely flagged as phishing. High confidence predictions for phishing URLs only.
@@ -96,11 +96,6 @@ Open your browser and navigate to http://localhost:8501
 
 ## 📜 **License**
 This project is licensed under the **MIT License**.  
-
-This means:  
-- ✅ You can **use, copy, and modify** this project freely  
-- ✅ You can **distribute it** and even use it **commercially**  
-- ⚠️ You must **include the original license and copyright notice**  
 
 ---
 
