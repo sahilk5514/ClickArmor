@@ -52,8 +52,6 @@ if st.button("🔍 Analyze URL"):
         result = predictor.predict_single_url(url)
         label = result["prediction"]
         confidence = result["confidence"]
-        st.success(f"Prediction: {label}")
-        st.info(f"Confidence: {confidence}%")
 
         if label == "phishing":
             st.markdown(
