@@ -225,3 +225,6 @@ __pycache__/
 
 check_senstive.ipynb
 debug_url.py
+Data/all_file_analysis.ipynb
+Data/Phishing URLs1.csv
+Data/Phishing URLs2.csv
