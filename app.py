@@ -53,17 +53,19 @@ if st.button("🔍 Analyze URL"):
         label = result["prediction"]
         probability = result["probability"]
 
+        confidence_text = f"{probability:.2%}"
+
         if label == "phishing":
             st.markdown(
                 f"<div style='background-color:#ffe6e6; padding:15px; border-radius:12px; text-align:center;'>"
                 f"<h3 style='color:#d9534f;'>🚨 Prediction: Phishing</h3>"
-                f"<p>Confidence: <b>{probability:.4f}</b></p>"
+                f"<p>Confidence: <b>{confidence_text}</b></p>"
                 f"</div>", unsafe_allow_html=True
             )
         else:
             st.markdown(
                 f"<div style='background-color:#e6ffe6; padding:15px; border-radius:12px; text-align:center;'>"
                 f"<h3 style='color:#28a745;'>✅ Prediction: Benign</h3>"
-                f"<p>Confidence: <b>{probability:.4f}</b></p>"
+                f"<p>Confidence: <b>{confidence_text}</b></p>"
                 f"</div>", unsafe_allow_html=True
             )
