@@ -31,10 +31,10 @@ class PredictPipeline:
 
 
             # Predict probability
-            y_pred_proba = self.model.predict_proba(features)[0]
+            y_pred_proba = self.model.predict_proba(features)[:1]
 
             # Apply threshold
-            prediction = (y_pred_proba >= self.threshold).astype(int)
+            prediction = (y_pred_proba >= self.threshold).astype(int)[0]
 
             # Map numeric to label
             label = "phishing" if prediction == 1 else "benign"
