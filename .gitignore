@@ -220,3 +220,8 @@ clickarmor_env/
 
 # Ignore resources folder
 resources/
+__pycache__/
+*.pyc
+
+check_senstive.ipynb
+debug_url.py
