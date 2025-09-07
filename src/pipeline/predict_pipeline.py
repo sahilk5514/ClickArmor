@@ -42,7 +42,11 @@ class PredictPipeline:
             return {"prediction": label, "probability": float(y_pred_proba[0])}
 
         except Exception as e:
-            raise CustomException(e, sys)
+            import traceback
+            print("Error in predict_single_url:", str(e))
+            traceback.print_exc()
+            raise e
+
 
 
 # if __name__ == "__main__":
