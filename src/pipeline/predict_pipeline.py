@@ -17,40 +17,40 @@ class PredictPipeline:
         except Exception as e:
             raise CustomException(e, sys)
 
-def predict_single_url(self, url: str):
-    try:
-        # Convert URL to DataFrame
-        df = pd.DataFrame({"url": [url]})
+    def predict_single_url(self, url: str):
+        try:
+            # Convert URL to DataFrame
+            df = pd.DataFrame({"url": [url]})
 
-        # Extract features
-        features = self.transformer.feature_extraction(df)
+            # Extract features
+            features = self.transformer.feature_extraction(df)
 
-        # Drop label if exists
-        if "label" in features.columns:
-            features = features.drop(columns=["label"])
+            # Drop label if exists
+            if "label" in features.columns:
+                features = features.drop(columns=["label"])
 
-        # Predict probabilities: [benign_prob, phishing_prob]
-        y_pred_proba = self.model.predict_proba(features)[0]  # single row
+            # Predict probabilities: [benign_prob, phishing_prob]
+            y_pred_proba = self.model.predict_proba(features)[0]  # single row
 
-        # Decide class based on threshold
-        is_phishing = int(y_pred_proba[1] >= self.threshold)
+            # Decide class based on threshold
+            is_phishing = int(y_pred_proba[1] >= self.threshold)
 
-        # Map numeric prediction to label
-        label = "phishing" if is_phishing == 1 else "benign"
+            # Map numeric prediction to label
+            label = "phishing" if is_phishing == 1 else "benign"
 
-        # Confidence = probability of predicted class in percentage
-        confidence = y_pred_proba[is_phishing] * 100  # convert to %
+            # Confidence = probability of predicted class in percentage
+            confidence = y_pred_proba[is_phishing] * 100  # convert to %
 
-        return {
-            "prediction": label,
-            "confidence": round(confidence, 2)  # e.g., 92.34%
-        }
+            return {
+                "prediction": label,
+                "confidence": round(confidence, 2)  # e.g., 92.34%
+            }
 
-    except Exception as e:
-        print("Error in predict_single_url:", str(e))
-        import traceback
-        traceback.print_exc()
-        raise
+        except Exception as e:
+            print("Error in predict_single_url:", str(e))
+            import traceback
+            traceback.print_exc()
+            raise
 
 
 
