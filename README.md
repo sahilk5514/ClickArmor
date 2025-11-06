@@ -48,7 +48,7 @@ ClickArmor/
 ```
 | Metric            | Value    |
 |-------------------|----------|
-| Accuracy          | 98.75%   |
+| Accuracy          | 98.78%   |
 | Recall (Phishing) | <0.7     |
  -------------------------------
  ```
