@@ -4,8 +4,11 @@ from src.logger import logging
 import sys
 
 def error_message_detail(error, error_detail: sys):
+    # Only takes the traceback object (last element).
     _, _, exc_tb = error_detail.exc_info()
+    # Get the filename where error occured
     file_name = exc_tb.tb_frame.f_code.co_filename
+    # Gets the line number of the error , file number and what error occured
     return "Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(
         file_name, exc_tb.tb_lineno, str(error)
     )
